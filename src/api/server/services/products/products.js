@@ -170,9 +170,8 @@ class ProductsService {
 			name: attributeName,
 			values: allAttributesResult
 				.filter(b => b._id.name === attributeName)
-				.sort(
-					(a, b) =>
-						a._id.value > b._id.value ? 1 : b._id.value > a._id.value ? -1 : 0
+				.sort((a, b) =>
+					a._id.value > b._id.value ? 1 : b._id.value > a._id.value ? -1 : 0
 				)
 				.map(b => ({
 					name: b._id.value,
@@ -353,6 +352,7 @@ class ProductsService {
 			quantity_inc: 1,
 			quantity_min: 1,
 			meta_description: 1,
+			videoURL: 1,
 			meta_title: 1,
 			name: 1,
 			description: 1,
@@ -647,8 +647,8 @@ class ProductsService {
 		if (!ObjectID.isValid(id)) {
 			return Promise.reject('Invalid identifier');
 		}
-		return this.getProducts({ ids: id, limit: 1 }).then(
-			products => (products.data.length > 0 ? products.data[0] : {})
+		return this.getProducts({ ids: id, limit: 1 }).then(products =>
+			products.data.length > 0 ? products.data[0] : {}
 		);
 	}
 
@@ -713,6 +713,7 @@ class ProductsService {
 		product.name = parse.getString(data.name);
 		product.description = parse.getString(data.description);
 		product.meta_description = parse.getString(data.meta_description);
+		product.videoURL = parse.getString(data.videoURL); // Changes to add Video URL
 		product.meta_title = parse.getString(data.meta_title);
 		product.tags = parse.getArrayIfValid(data.tags) || [];
 		product.attributes = this.getValidAttributesArray(data.attributes);
@@ -788,6 +789,9 @@ class ProductsService {
 		if (data.meta_description !== undefined) {
 			product.meta_description = parse.getString(data.meta_description);
 		}
+		if (data.videoURL !== undefined) {
+			product.videoURL = parse.getString(data.videoURL); // Added Video URL
+		}
 
 		if (data.meta_title !== undefined) {
 			product.meta_title = parse.getString(data.meta_title);
@@ -823,6 +827,10 @@ class ProductsService {
 
 		if (data.sku !== undefined) {
 			product.sku = parse.getString(data.sku);
+		}
+
+		if (data.vidoeURL !== undefined) {
+			product.vidoeURL = parse.getString(data.vidoeURL);
 		}
 
 		if (data.code !== undefined) {

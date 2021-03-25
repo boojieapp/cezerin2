@@ -88,6 +88,12 @@ const ProductGeneralForm = ({
 							floatingLabelText={messages.metaDescription}
 							fullWidth={true}
 						/>
+						<Field
+							name="videoURL"
+							component={TextField}
+							floatingLabelText={messages.videoURL}
+							fullWidth={true}
+						/>
 						<div className="field-hint" style={{ marginTop: 40 }}>
 							{messages.description}
 						</div>

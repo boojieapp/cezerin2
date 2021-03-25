@@ -19,6 +19,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 					slug: values.slug,
 					meta_title: values.meta_title,
 					meta_description: values.meta_description,
+					videoURL: values.videoURL,
 					description: values.description
 				})
 			);
@@ -27,8 +28,5 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 };
 
 export default withRouter(
-	connect(
-		mapStateToProps,
-		mapDispatchToProps
-	)(ProductGeneralForm)
+	connect(mapStateToProps, mapDispatchToProps)(ProductGeneralForm)
 );
