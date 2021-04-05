@@ -89,9 +89,9 @@ const ProductGeneralForm = ({
 							fullWidth={true}
 						/>
 						<Field
-							name="videoURL"
+							name="videoUrl"
 							component={TextField}
-							floatingLabelText={messages.videoURL}
+							floatingLabelText={messages.videoUrl}
 							fullWidth={true}
 						/>
 						<div className="field-hint" style={{ marginTop: 40 }}>

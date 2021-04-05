@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 					slug: values.slug,
 					meta_title: values.meta_title,
 					meta_description: values.meta_description,
-					videoURL: values.videoURL,
+					videoUrl: values.videoUrl,
 					description: values.description
 				})
 			);

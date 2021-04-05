@@ -352,7 +352,7 @@ class ProductsService {
 			quantity_inc: 1,
 			quantity_min: 1,
 			meta_description: 1,
-			videoURL: 1,
+			videoUrl: 1,
 			meta_title: 1,
 			name: 1,
 			description: 1,
@@ -713,7 +713,7 @@ class ProductsService {
 		product.name = parse.getString(data.name);
 		product.description = parse.getString(data.description);
 		product.meta_description = parse.getString(data.meta_description);
-		product.videoURL = parse.getString(data.videoURL); // Changes to add Video URL
+		product.videoUrl = parse.getString(data.videoUrl); // Changes to add Video URL
 		product.meta_title = parse.getString(data.meta_title);
 		product.tags = parse.getArrayIfValid(data.tags) || [];
 		product.attributes = this.getValidAttributesArray(data.attributes);
@@ -789,8 +789,8 @@ class ProductsService {
 		if (data.meta_description !== undefined) {
 			product.meta_description = parse.getString(data.meta_description);
 		}
-		if (data.videoURL !== undefined) {
-			product.videoURL = parse.getString(data.videoURL); // Added Video URL
+		if (data.videoUrl !== undefined) {
+			product.videoUrl = parse.getString(data.videoUrl); // Added Video URL
 		}
 
 		if (data.meta_title !== undefined) {
