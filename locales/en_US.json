@@ -235,6 +235,7 @@
   "customers_totalSpent": "Total Spent",
   "customers_orders": "Orders",
   "customers_location": "Location",
+  "customers_email": "Email",
   "customers_search": "Search customers",
   "customers_setGroup": "Set group",
   "customers_noGroup": "No group",

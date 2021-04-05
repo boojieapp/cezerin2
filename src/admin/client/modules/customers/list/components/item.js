@@ -10,7 +10,7 @@ import style from './style.css';
 
 const CustomersListItem = ({ customer, onSelect, selected, settings }) => {
 	const checked = selected.includes(customer.id);
-	let totalSpentFormatted = helper.formatCurrency(
+	let grandTotalFormatted = helper.formatCurrency(
 		customer.total_spent,
 		settings
 	);
@@ -29,7 +29,7 @@ const CustomersListItem = ({ customer, onSelect, selected, settings }) => {
 								}}
 							/>
 						</div>
-						<div className="col-xs-5">
+						<div className="col-xs-3">
 							<Link
 								to={'/admin/customer/' + customer.id}
 								className={style.customerName}
@@ -39,27 +39,32 @@ const CustomersListItem = ({ customer, onSelect, selected, settings }) => {
 								<small>{customer.group_name}</small>
 							</Link>
 						</div>
+						<div className="col-xs-2">
+							{customer.email}
+							<br />
+						</div>
 						<div className={'col-xs-3 ' + style.location}>
-							{customer.shipping &&
-								customer.shipping.city && (
-									<span>
-										<FontIcon
-											style={{
-												color: 'rgba(0, 0, 0, 0.4)',
-												fontSize: 16,
-												marginRight: 6
-											}}
-											className="material-icons"
-										>
-											place
-										</FontIcon>
-										{customer.shipping.city}
-									</span>
-								)}
+							{customer.shipping && customer.shipping.city && (
+								<span>
+									<FontIcon
+										style={{
+											color: 'rgba(0, 0, 0, 0.4)',
+											fontSize: 16,
+											marginRight: 6
+										}}
+										className="material-icons"
+									>
+										place
+									</FontIcon>
+									{customer.shipping.city}
+								</span>
+							)}
 						</div>
 						<div className="col-xs-1">{customer.orders_count || 0}</div>
 						<div className="col-xs-2">
-							<div className={style.price}>{totalSpentFormatted}</div>
+							<div className={'col-xs-2 ' + style.price}>
+								{grandTotalFormatted}
+							</div>
 						</div>
 					</div>
 				}

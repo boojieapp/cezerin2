@@ -13,7 +13,8 @@ export default ({ onSelectAll }) => (
 					}}
 				/>
 			</div>
-			<div className="col-xs-5">{messages.customers_name}</div>
+			<div className="col-xs-3">{messages.customers_name}</div>
+			<div className="col-xs-2">{messages.customers_email}</div>
 			<div className="col-xs-3">{messages.customers_location}</div>
 			<div className="col-xs-1">{messages.customers_orders}</div>
 			<div
